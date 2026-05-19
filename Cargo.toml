@@ -1,0 +1,40 @@
+[package]
+name = "command-trie"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+description = "A compact radix trie for command-line tab completion and longest-prefix matching."
+license = "BSD-2-Clause"
+repository = "https://github.com/ogital-net/command-trie"
+documentation = "https://docs.rs/command-trie"
+readme = "README.md"
+keywords = ["trie", "radix", "completion", "cli", "prefix"]
+categories = ["data-structures", "command-line-interface"]
+include = [
+    "src/**/*.rs",
+    "examples/**/*.rs",
+    "Cargo.toml",
+    "README.md",
+    "LICENSE",
+]
+
+[dependencies]
+
+[dev-dependencies]
+criterion = { version = "0.5", default-features = false, features = ["cargo_bench_support"] }
+trie-rs = "0.4"
+radix_trie = "0.2"
+fst = "0.4"
+dhat = "0.3"
+
+[[bench]]
+name = "lookup"
+harness = false
+
+[[bench]]
+name = "comparison"
+harness = false
+
+[[example]]
+name = "alloc_profile"
+path = "examples/alloc_profile.rs"
